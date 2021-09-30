@@ -1,0 +1,80 @@
+<html>
+<head>
+
+  <script language="javaScript">
+  function greeting1()
+  {
+        //= is the assignment operator
+        // assignment stores what's on the right side into the element on the left.
+                
+        var name = prompt("What's your name?"); //"What's your name?" is a perameter
+        alert("What's up "+name);
+  }// end of greeting1()
+  function greeting2()
+  {	
+		alert("Congradulations, you pressed this button.")
+  }
+  function greeting3()
+  {
+		confirm("Press confirm.")
+  }
+  function guessing()
+  {
+        /*
+        
+        1. Use number inputed by user and save it
+        2. Pick random number
+        3. Check if number is less, equal, or greater than random number
+        4. Alert the user if it is less or more and if not equal make them guess again
+        5. Repeat step 3 until they guess the right number.
+        */
+   
+        
+        
+        var rand = Math.random() * 10 + 1;
+        rand = rand + 1;
+        rand = parseInt(rand);
+		
+        var usersGuess = prompt("Put a number in box from 1-10");
+        var numGuess = 1 ;//how many guesses
+        
+        while(usersGuess != rand)
+        {
+			if(usersGuess < rand)
+            {	alert(usersGuess+" is too low.");
+			}
+                
+            else if(usersGuess > rand)
+            {	alert(usersGuess+" is too high.");
+			}
+			
+			usersGuess = prompt("Put a number in box from 1-10");
+           
+			numGuess++;
+        
+			
+		}// Outside the loop, user got the answer correct.
+		
+		alert("Good job. You got the number in " +numGuess+ " tries.")
+          
+            
+  }
+  </script>
+  <title></title>
+</head>
+<body bgcolor="Blue">
+  <font color="yellow">
+  <h1>java.html</h1>
+  <h2>Go to <a href="index.html">index.html</a></h2><br>
+ 
+ <br><hr>
+ 
+ <input type="button" value="Click to enter your name." onclick="greeting1()"><br>
+ <input type="button" value="Click again." onclick="greeting2()"><br>
+ <input type="button" value="Click this one, too." onclick="greeting3()"><br>
+ 
+ <br><br><br><br><br><br><br>
+ 
+ <input type="button" value="Try to guess a a number 1-10" onclick="guessing()">
+</body>
+</html>
