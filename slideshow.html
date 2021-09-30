@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<script language="javaScript">
+
+var clipList = ["sounds/boom.mp3", "sounds/bruhSound.mp3", "sounds/duece.mp3", "sounds/music.mp3", "sounds/sus.mp3", "sounds/tacoBell.mp3"]
+
+var picList = ["images/Slideshow/neutral.jpg", "images/Slideshow/angry.jpg", "images/Slideshow/hungry.jpg", "images/Slideshow/judging.jpg", "images/Slideshow/demonic.jpg", "images/Slideshow/affection.jpg"]
+
+var counter = 1
+var timer;
+var startTimer = false;
+
+function next()
+{
+	var score = 1 //local variable. accessable only to this function
+	score = score + 1
+	document.getElementById("display").src = picList[counter]
+	increment();
+	
+	document.getElementById("player").src = clipList[counter]
+	document.getElementById("player").play();
+}
+
+function run()
+{
+
+	if (startTimer == false)
+	{
+	startTimer = true
+	}
+
+	else
+	{
+	startTimer = false
+	}
+
+	autoDisplay();
+
+}
+
+
+
+function autoDisplay()
+{
+	if (startTimer == true)
+	{
+		document.getElementById("display").src = (picList[counter]);
+		increment();
+		timer = setTimeout("autoDisplay()", 1500);
+		
+		document.getElementById("player").src = clipList[counter]
+		document.getElementById("player").play();
+	}
+	else 
+	{
+		clearTimeout(timer)
+	}
+}
+
+function increment()
+{
+	if (counter==5)
+	{counter=0}
+	
+	else
+	{counter++}
+}
+
+</script>
+</head>
+<center>
+<body>
+<h1> Slide show </h1>
+
+<h2> Return to <a href="index.html"/> index.html </a> </h2>
+
+<br/><br/><br/><br/>
+
+<input type="button" value="Next Picture" onclick="next()"/>
+<input type="button" value="Run Slideshow" onclick="run()"/>
+
+<br/> <br/> 
+
+<img src="images/Slideshow/neutral.jpg" id="display" height="300" width="300"/>
+<audio id = "player"></audio>
+
+</body>
+
+</html>
