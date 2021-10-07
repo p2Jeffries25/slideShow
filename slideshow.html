@@ -13,7 +13,7 @@ var startTimer = false;
 
 function next()
 {
-	var score = 1 //local variable. accessable only to this function
+	var score = 1
 	score = score + 1
 	document.getElementById("display").src = picList[counter]
 	increment();
@@ -45,9 +45,9 @@ function autoDisplay()
 {
 	if (startTimer == true)
 	{
-		document.getElementById("display").src = (picList[counter]);
 		increment();
-		timer = setTimeout("autoDisplay()", 1500);
+		document.getElementById("display").src = (picList[counter]);
+		timer = setTimeout("autoDisplay()",  1000);
 		
 		document.getElementById("player").src = clipList[counter]
 		document.getElementById("player").play();
@@ -78,7 +78,7 @@ function increment()
 <br/><br/><br/><br/>
 
 <input type="button" value="Next Picture" onclick="next()"/>
-<input type="button" value="Run Slideshow" onclick="run()"/>
+<input type="button" value="Run/Pause Slideshow" onclick="run()"/>
 
 <br/> <br/> 
 
